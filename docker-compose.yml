@@ -1,9 +1,17 @@
 version: "3.8"
+
 services:
   db:
     image: mysql:8.0
+    container_name: garage-db
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: garage
-    ports: ["3306:3306"]
-    command: ["--default-time-zone=+00:00","--lower_case_table_names=1"]
+    ports:
+      - "3306:3306"
+    command: ["--default-time-zone=+00:00", "--lower_case_table_names=1"]
+
+  simulator:
+    image: cfontes0estapar/garage-sim:1.0.0
+    container_name: garage-sim
+    network_mode: "host"
