@@ -24,6 +24,12 @@ public class Spot {
     private Double lat;
     private Double lng;
 
-    private Boolean occupied;
+    private Boolean occupied = false;
 
+    @Column(name = "vehicle_plate", length = 20)
+    private String vehiclePlate;
+
+    public boolean isOccupied() {
+        return Boolean.TRUE.equals(occupied);
+    }
 }
