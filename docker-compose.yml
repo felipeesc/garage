@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: garage
+    ports: ["3306:3306"]
+    command: ["--default-time-zone=+00:00","--lower_case_table_names=1"]
