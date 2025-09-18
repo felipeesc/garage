@@ -1,8 +1,16 @@
-package garage.garage.entity.garage;
+package com.estapar.garage.garage.domain;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "garage")
 public class Garage {

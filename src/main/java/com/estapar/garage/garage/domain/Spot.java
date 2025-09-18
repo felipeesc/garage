@@ -1,7 +1,15 @@
-package garage.garage.entity.spot;
+package com.estapar.garage.garage.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "spot")
 public class Spot {

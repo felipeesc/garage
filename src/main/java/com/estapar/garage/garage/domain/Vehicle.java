@@ -1,10 +1,20 @@
-package garage.garage.entity.vehicle;
+package com.estapar.garage.garage.domain;
 
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "vehicle")
 public class Vehicle {
