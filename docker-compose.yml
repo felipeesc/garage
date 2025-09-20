@@ -12,12 +12,6 @@ services:
       - "3306:3306"
     command: ["--default-time-zone=+00:00", "--lower_case_table_names=1"]
 
-
-  simulator:
-    image: cfontes0estapar/garage-sim:1.0.0
-    container_name: garage-sim
-    network_mode: "host"
-
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -33,7 +27,7 @@ services:
     image: grafana/grafana-oss:latest
     container_name: grafana
     ports:
-    - "3001:3000"  # acesse em http://localhost:3001
+      - "3001:3000"
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin

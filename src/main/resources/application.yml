@@ -6,12 +6,15 @@ spring:
     url: jdbc:mysql://localhost:3306/garage?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
     password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
     properties:
       hibernate.jdbc.time_zone: UTC
+      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+
 
 management:
   endpoints:
@@ -34,3 +37,7 @@ pricing:
   discount-low: 0.90
   surcharge-med: 1.10
   surcharge-high: 1.25
+
+app:
+  simulator:
+    base-url: http://localhost:3003

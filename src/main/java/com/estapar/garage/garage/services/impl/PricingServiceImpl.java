@@ -1,8 +1,9 @@
-package com.estapar.garage.garage.service;
+package com.estapar.garage.garage.services.impl;
 
 import com.estapar.garage.garage.domain.Garage;
 import com.estapar.garage.garage.repository.GarageRepository;
 import com.estapar.garage.garage.repository.SpotRepository;
+import com.estapar.garage.garage.services.PricingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +15,7 @@ import java.math.RoundingMode;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class PricingService {
+public class PricingServiceImpl implements PricingService {
 
     private final GarageRepository garageRepository;
     private final SpotRepository spotRepository;
@@ -31,6 +32,7 @@ public class PricingService {
     @Value("${pricing.surcharge-high:1.25}")
     private BigDecimal surchargeHigh;
 
+    @Override
     public BigDecimal calculate(String sector, long minutes) {
         log.info("Calculando preço. sector={}, minutes={}", sector, minutes);
 

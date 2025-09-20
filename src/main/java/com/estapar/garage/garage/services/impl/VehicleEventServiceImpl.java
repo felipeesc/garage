@@ -1,6 +1,7 @@
-package com.estapar.garage.garage.service;
+package com.estapar.garage.garage.services.impl;
 
 import com.estapar.garage.garage.dto.VehicleDTO;
+import com.estapar.garage.garage.services.VehicleEventService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -9,9 +10,9 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class VehicleEventService {
+public class VehicleEventServiceImpl implements VehicleEventService {
 
-    private final ParkingService parkingService;
+    private final ParkingServiceImpl parkingServiceImpl;
 
     public ResponseEntity<String> processEvent(VehicleDTO event) {
         if (event.getEventType() == null) {
@@ -20,9 +21,9 @@ public class VehicleEventService {
         log.info("Processando evento: {} para placa: {}", event.getEventType(), event.getLicensePlate());
 
         switch (event.getEventType()) {
-            case ENTRY -> parkingService.handleEntry(event);
-            case PARKED -> parkingService.handleParked(event);
-            case EXIT -> parkingService.handleExit(event);
+            case ENTRY -> parkingServiceImpl.handleEntry(event);
+            case PARKED -> parkingServiceImpl.handleParked(event);
+            case EXIT -> parkingServiceImpl.handleExit(event);
             default -> throw new IllegalArgumentException("Evento desconhecido: " + event.getEventType());
         }
 

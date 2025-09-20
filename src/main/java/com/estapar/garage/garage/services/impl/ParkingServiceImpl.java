@@ -1,4 +1,4 @@
-package com.estapar.garage.garage.service;
+package com.estapar.garage.garage.services.impl;
 
 import com.estapar.garage.garage.domain.Garage;
 import com.estapar.garage.garage.domain.Spot;
@@ -7,6 +7,8 @@ import com.estapar.garage.garage.dto.VehicleDTO;
 import com.estapar.garage.garage.repository.GarageRepository;
 import com.estapar.garage.garage.repository.SpotRepository;
 import com.estapar.garage.garage.repository.VehicleRepository;
+import com.estapar.garage.garage.services.ParkingService;
+import com.estapar.garage.garage.services.PricingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,13 +22,14 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class ParkingService {
+public class ParkingServiceImpl implements ParkingService {
 
     private final GarageRepository garageRepository;
     private final SpotRepository spotRepository;
     private final VehicleRepository vehicleRepository;
     private final PricingService pricingService;
 
+    @Override
     @Transactional
     public void handleEntry(VehicleDTO event) {
         log.info("Registrando entrada do veículo {}", event.getLicensePlate());
@@ -55,6 +58,7 @@ public class ParkingService {
         log.info("Veículo {} entrou no setor {}", event.getLicensePlate(), event.getSector());
     }
 
+    @Override
     @Transactional
     public void handleParked(VehicleDTO event) {
         log.info("Registrando posição de estacionamento do veículo {}", event.getLicensePlate());
@@ -78,6 +82,7 @@ public class ParkingService {
         log.info("Veículo {} estacionado na vaga {}", event.getLicensePlate(), spot.getId());
     }
 
+    @Override
     @Transactional
     public void handleExit(VehicleDTO event) {
         log.info("Registrando saída do veículo {}", event.getLicensePlate());

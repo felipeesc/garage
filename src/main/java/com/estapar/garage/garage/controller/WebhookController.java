@@ -1,7 +1,7 @@
 package com.estapar.garage.garage.controller;
 
 import com.estapar.garage.garage.dto.VehicleDTO;
-import com.estapar.garage.garage.service.VehicleEventService;
+import com.estapar.garage.garage.services.VehicleEventService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
