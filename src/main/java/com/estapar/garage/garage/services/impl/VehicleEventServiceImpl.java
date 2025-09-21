@@ -1,6 +1,6 @@
 package com.estapar.garage.garage.services.impl;
 
-import com.estapar.garage.garage.dto.VehicleDTO;
+import com.estapar.garage.garage.dtos.VehicleDTO;
 import com.estapar.garage.garage.services.VehicleEventService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

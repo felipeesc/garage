@@ -1,6 +1,6 @@
 package com.estapar.garage.garage.services.impl;
 
-import com.estapar.garage.garage.repository.VehicleRepository;
+import com.estapar.garage.garage.repositorys.VehicleRepository;
 import com.estapar.garage.garage.services.RevenueService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

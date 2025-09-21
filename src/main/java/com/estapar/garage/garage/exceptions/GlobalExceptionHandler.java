@@ -1,4 +1,4 @@
-package com.estapar.garage.garage.exception;
+package com.estapar.garage.garage.exceptions;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

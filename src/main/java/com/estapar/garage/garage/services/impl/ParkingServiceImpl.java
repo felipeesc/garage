@@ -1,12 +1,12 @@
 package com.estapar.garage.garage.services.impl;
 
-import com.estapar.garage.garage.domain.Garage;
-import com.estapar.garage.garage.domain.Spot;
-import com.estapar.garage.garage.domain.Vehicle;
-import com.estapar.garage.garage.dto.VehicleDTO;
-import com.estapar.garage.garage.repository.GarageRepository;
-import com.estapar.garage.garage.repository.SpotRepository;
-import com.estapar.garage.garage.repository.VehicleRepository;
+import com.estapar.garage.garage.domains.Garage;
+import com.estapar.garage.garage.domains.Spot;
+import com.estapar.garage.garage.domains.Vehicle;
+import com.estapar.garage.garage.dtos.VehicleDTO;
+import com.estapar.garage.garage.repositorys.GarageRepository;
+import com.estapar.garage.garage.repositorys.SpotRepository;
+import com.estapar.garage.garage.repositorys.VehicleRepository;
 import com.estapar.garage.garage.services.ParkingService;
 import com.estapar.garage.garage.services.PricingService;
 import lombok.RequiredArgsConstructor;

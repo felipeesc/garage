@@ -1,6 +1,6 @@
-package com.estapar.garage.garage.controller;
+package com.estapar.garage.garage.controllers;
 
-import com.estapar.garage.garage.dto.VehicleDTO;
+import com.estapar.garage.garage.dtos.VehicleDTO;
 import com.estapar.garage.garage.services.VehicleEventService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

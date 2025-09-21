@@ -1,6 +1,6 @@
-package com.estapar.garage.garage.repository;
+package com.estapar.garage.garage.repositorys;
 
-import com.estapar.garage.garage.domain.Spot;
+import com.estapar.garage.garage.domains.Spot;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -11,10 +11,6 @@ public interface SpotRepository extends JpaRepository<Spot, Long> {
     long countBySectorAndOccupiedTrue(String sector);
 
     Optional<Spot> findByLatAndLng(Double lat, Double lng);
-
-    Optional<Spot> findByOccupiedAndSector(Boolean occupied, String sector);
-
-    Optional<Spot> findByIdAndSector(Long id, String sector);
 
     Optional<Spot> findByVehiclePlate(@NotBlank(message = "licensePlate é obrigatório") String licensePlate);
 }

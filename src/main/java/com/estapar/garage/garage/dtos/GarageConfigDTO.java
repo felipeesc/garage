@@ -1,4 +1,4 @@
-package com.estapar.garage.garage.dto;
+package com.estapar.garage.garage.dtos;
 
 import lombok.Data;
 import java.util.List;

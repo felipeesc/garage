@@ -1,4 +1,4 @@
-package com.estapar.garage.garage.domain;
+package com.estapar.garage.garage.domains;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;

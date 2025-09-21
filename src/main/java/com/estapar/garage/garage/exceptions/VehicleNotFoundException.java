@@ -1,4 +1,4 @@
-package com.estapar.garage.garage.exception;
+package com.estapar.garage.garage.exceptions;
 
 public class VehicleNotFoundException extends RuntimeException {
     public VehicleNotFoundException(String plate) {

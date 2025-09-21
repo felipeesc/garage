@@ -1,4 +1,4 @@
-package com.estapar.garage.garage.dto;
+package com.estapar.garage.garage.dtos;
 
 import com.estapar.garage.garage.enums.EventTypeEnum;
 import com.fasterxml.jackson.annotation.JsonProperty;

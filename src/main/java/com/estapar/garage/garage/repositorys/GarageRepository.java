@@ -1,6 +1,6 @@
-package com.estapar.garage.garage.repository;
+package com.estapar.garage.garage.repositorys;
 
-import com.estapar.garage.garage.domain.Garage;
+import com.estapar.garage.garage.domains.Garage;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

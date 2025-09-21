@@ -1,10 +1,10 @@
 package com.estapar.garage.garage.startup;
 
-import com.estapar.garage.garage.domain.Garage;
-import com.estapar.garage.garage.domain.Spot;
-import com.estapar.garage.garage.dto.GarageConfigDTO;
-import com.estapar.garage.garage.repository.GarageRepository;
-import com.estapar.garage.garage.repository.SpotRepository;
+import com.estapar.garage.garage.domains.Garage;
+import com.estapar.garage.garage.domains.Spot;
+import com.estapar.garage.garage.dtos.GarageConfigDTO;
+import com.estapar.garage.garage.repositorys.GarageRepository;
+import com.estapar.garage.garage.repositorys.SpotRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

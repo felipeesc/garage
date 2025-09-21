@@ -1,8 +1,8 @@
 package com.estapar.garage.garage.services.impl;
 
-import com.estapar.garage.garage.domain.Garage;
-import com.estapar.garage.garage.repository.GarageRepository;
-import com.estapar.garage.garage.repository.SpotRepository;
+import com.estapar.garage.garage.domains.Garage;
+import com.estapar.garage.garage.repositorys.GarageRepository;
+import com.estapar.garage.garage.repositorys.SpotRepository;
 import com.estapar.garage.garage.services.PricingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

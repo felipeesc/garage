@@ -1,6 +1,6 @@
-package com.estapar.garage.garage.repository;
+package com.estapar.garage.garage.repositorys;
 
-import com.estapar.garage.garage.domain.Vehicle;
+import com.estapar.garage.garage.domains.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

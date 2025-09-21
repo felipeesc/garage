@@ -1,4 +1,4 @@
-package com.estapar.garage.garage.controller;
+package com.estapar.garage.garage.controllers;
 
 import com.estapar.garage.garage.services.RevenueService;
 import lombok.RequiredArgsConstructor;
