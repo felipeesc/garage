@@ -37,4 +37,15 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
     }
+
+    @ExceptionHandler(VehicleNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleVehicleNotFound(VehicleNotFoundException ex) {
+        log.warn("Veículo não encontrado: {}", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of(
+                "error", ex.getMessage(),
+                "status", HttpStatus.NOT_FOUND.value(),
+                "timestamp", ZonedDateTime.now().toString()
+        ));
+    }
+
 }
