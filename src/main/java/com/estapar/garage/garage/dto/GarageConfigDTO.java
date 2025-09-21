@@ -21,5 +21,6 @@ public class GarageConfigDTO {
         private String sector;
         private double lat;
         private double lng;
+        private String vehiclePlate;
     }
 }

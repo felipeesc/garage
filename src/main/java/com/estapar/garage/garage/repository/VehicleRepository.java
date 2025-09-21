@@ -13,8 +13,9 @@ public interface VehicleRepository extends JpaRepository<Vehicle, String> {
     @Query("SELECT COALESCE(SUM(v.pricePaid), 0) " +
             "FROM Vehicle v " +
             "WHERE DATE(v.exitTime) = :date " +
-            "AND (:sector IS NULL OR v.sector = :sector)")
+            "AND (:sector IS NULL OR v.spot.sector = :sector)")
     BigDecimal getRevenueByDateAndSector(@Param("date") LocalDate date,
                                          @Param("sector") String sector);
+
 }
 

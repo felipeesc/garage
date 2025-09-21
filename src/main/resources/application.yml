@@ -40,4 +40,4 @@ pricing:
 
 app:
   simulator:
-    base-url: http://localhost:3003
+    base-url: http://localhost:3000

@@ -15,11 +15,13 @@ import lombok.NoArgsConstructor;
 public class Spot {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 10)
     private String sector;
+
+    @Version
+    private Long version;
 
     private Double lat;
     private Double lng;

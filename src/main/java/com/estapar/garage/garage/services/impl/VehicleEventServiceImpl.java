@@ -15,7 +15,7 @@ public class VehicleEventServiceImpl implements VehicleEventService {
     private final ParkingServiceImpl parkingServiceImpl;
 
     public ResponseEntity<String> processEvent(VehicleDTO event) {
-        if (event.getEventType() == null) {
+         if (event.getEventType() == null) {
             return ResponseEntity.badRequest().body("eventType é obrigatório");
         }
         log.info("Processando evento: {} para placa: {}", event.getEventType(), event.getLicensePlate());

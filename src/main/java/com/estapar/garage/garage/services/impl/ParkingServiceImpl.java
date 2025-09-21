@@ -33,14 +33,12 @@ public class ParkingServiceImpl implements ParkingService {
     @Transactional
     public void handleEntry(VehicleDTO event) {
         log.info("Registrando entrada do veículo {}", event.getLicensePlate());
-        Garage garage = garageRepository.findBySector(event.getSector())
-                .orElseThrow(() -> new IllegalStateException("Setor não encontrado: " + event.getSector()));
 
-        long occupied = spotRepository.countBySectorAndOccupiedTrue(event.getSector());
-        if (occupied >= garage.getMaxCapacity()) {
-            throw new IllegalStateException("Setor " + event.getSector() + " está lotado!");
-        }
-
+        // escolher setor disponível automaticamente
+        Garage garage = garageRepository.findAll().stream()
+                .filter(g -> spotRepository.countBySectorAndOccupiedTrue(g.getSector()) < g.getMaxCapacity())
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Todos os setores estão lotados!"));
 
         Vehicle vehicle = vehicleRepository.findById(event.getLicensePlate())
                 .orElseGet(() -> {
@@ -49,14 +47,14 @@ public class ParkingServiceImpl implements ParkingService {
                     return v;
                 });
 
-        if (vehicle.getEntryTime() == null || (vehicle.getExitTime() != null && !vehicle.getExitTime().isAfter(vehicle.getEntryTime()))) {
-            vehicle.setEntryTime(event.getEntryTime() != null ? event.getEntryTime() : LocalDateTime.now());
-            vehicle.setExitTime(null);
-        }
+        vehicle.setSector(garage.getSector());
+        vehicle.setEntryTime(event.getEntryTime() != null ? event.getEntryTime() : LocalDateTime.now());
+        vehicle.setExitTime(null);
 
         vehicleRepository.save(vehicle);
-        log.info("Veículo {} entrou no setor {}", event.getLicensePlate(), event.getSector());
+        log.info("Veículo {} entrou no setor {}", event.getLicensePlate(), garage.getSector());
     }
+
 
     @Override
     @Transactional
@@ -95,15 +93,14 @@ public class ParkingServiceImpl implements ParkingService {
 
         long minutes = Duration.between(vehicle.getEntryTime(), exitTime).toMinutes();
 
-        Optional<Spot> currentSpotOpt = spotRepository.findByVehiclePlate(event.getLicensePlate());
-        String sector = currentSpotOpt
-                .map(Spot::getSector)
-                .orElseThrow(() -> new IllegalStateException("Vaga do veículo não encontrada para cálculo de preço"));
+        if (vehicle.getSector() == null) {
+            throw new IllegalStateException("Setor do veículo não definido (falha na entrada)");
+        }
 
-        BigDecimal price = pricingService.calculate(sector, minutes);
+        BigDecimal price = pricingService.calculate(vehicle.getSector(), minutes);
         vehicle.setPricePaid(price);
 
-        currentSpotOpt.ifPresent(spot -> {
+        spotRepository.findByVehiclePlate(event.getLicensePlate()).ifPresent(spot -> {
             spot.setOccupied(Boolean.FALSE);
             spot.setVehiclePlate(null);
             spotRepository.save(spot);
@@ -113,4 +110,6 @@ public class ParkingServiceImpl implements ParkingService {
 
         log.info("Veículo {} saiu, tempo total: {} min, valor cobrado: R${}", vehicle.getLicensePlate(), minutes, price);
     }
+
+
 }
