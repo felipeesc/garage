@@ -16,22 +16,6 @@ spring:
       hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
 
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,prometheus
-  endpoint:
-    health:
-      show-details: when_authorized
-  metrics:
-    tags:
-      application: garage
-  prometheus:
-    metrics:
-      export:
-        enabled: true
-
 pricing:
   free-minutes: 30
   discount-low: 0.90

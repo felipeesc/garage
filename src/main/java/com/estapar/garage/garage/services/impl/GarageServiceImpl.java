@@ -15,7 +15,6 @@ public class GarageServiceImpl implements GarageService {
 
     @Override
     public void initializeGarage() {
-        // lógica que hoje está no GarageInitializer
     }
 
     @Override

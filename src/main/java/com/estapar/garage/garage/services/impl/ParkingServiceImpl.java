@@ -34,7 +34,6 @@ public class ParkingServiceImpl implements ParkingService {
     public void handleEntry(VehicleDTO event) {
         log.info("Registrando entrada do veículo {}", event.getLicensePlate());
 
-        // escolher setor disponível automaticamente
         Garage garage = garageRepository.findAll().stream()
                 .filter(g -> spotRepository.countBySectorAndOccupiedTrue(g.getSector()) < g.getMaxCapacity())
                 .findFirst()
