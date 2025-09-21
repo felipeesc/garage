@@ -26,6 +26,7 @@ public class Spot {
     private Double lat;
     private Double lng;
 
+    @Builder.Default
     private Boolean occupied = false;
 
     @Column(name = "vehicle_plate", length = 20)
