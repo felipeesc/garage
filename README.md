@@ -111,11 +111,11 @@ A API sobe por padrão em: [http://localhost:3003](http://localhost:3003)
 
 ```
 src/main/java/com/estapar/garage
-├── controller        # REST Controllers
-├── domain            # Entidades JPA
-├── dto               # DTOs de entrada/saída
+├── controllers        # REST Controllers
+├── domains            # Entidades JPA
+├── dtos               # DTOs de entrada/saída
 ├── enums             # Enums (ENTRY, PARKED, EXIT)
-├── repository        # Repositórios JPA
+├── repositorys        # Repositórios JPA
 ├── services          # Serviços de negócio
 ├── startup           # Inicialização (GarageInitializer)
 └── GarageApplication # Classe principal
