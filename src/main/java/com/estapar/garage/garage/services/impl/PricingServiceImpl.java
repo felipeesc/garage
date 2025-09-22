@@ -34,14 +34,14 @@ public class PricingServiceImpl implements PricingService {
 
     @Override
     public BigDecimal calculate(String sector, long minutes) {
-        log.info("Calculando preço. sector={}, minutes={}", sector, minutes);
+        log.info("Calculando preço. Setor={}, minutos={}", sector, minutes);
 
         if (sector == null || sector.isBlank()) {
-            log.warn("Falha no cálculo: sector vazio/nulo");
+            log.warn("Falha no cálculo: Setor vazio/nulo");
             throw new IllegalArgumentException("Setor é obrigatório");
         }
         if (minutes < 0) {
-            log.warn("Falha no cálculo: minutes negativo ({})", minutes);
+            log.warn("Falha no cálculo: minutos negativo ({})", minutes);
             throw new IllegalArgumentException("minutos não pode ser negativo");
         }
 
